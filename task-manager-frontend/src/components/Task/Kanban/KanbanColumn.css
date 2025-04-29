@@ -1,0 +1,65 @@
+/* src/components/Task/Kanban/KanbanColumn.css */
+.kanban-column {
+    background-color: var(--background-color); /* Slightly different bg for columns */
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    min-width: 300px; /* Minimum width for columns */
+    flex: 1; /* Allow columns to grow */
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh; /* Limit column height */
+    transition: background-color 0.2s ease;
+  }
+
+  .kanban-column.dragging-over {
+    background-color: rgba(0, 0, 0, 0.05); /* Highlight when dragging over */
+  }
+  body.dark-theme .kanban-column.dragging-over {
+       background-color: rgba(255, 255, 255, 0.05);
+  }
+
+
+  .kanban-column-title {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--primary-color);
+    font-size: var(--font-size-lg);
+    text-align: center;
+  }
+
+  .kanban-column-tasks {
+    overflow-y: auto; /* Allow vertical scrolling within column */
+    flex-grow: 1; /* Take remaining space */
+    padding: 4px; /* Add slight padding around tasks */
+    min-height: 100px; /* Minimum height for the droppable area */
+  }
+
+  .kanban-task-wrapper {
+       margin-bottom: var(--spacing-md); /* Space between draggable items */
+  }
+  /* Remove margin from the TaskItem itself when inside Kanban */
+  .kanban-task-wrapper .task-item {
+      margin-bottom: 0;
+  }
+
+  .empty-column-message {
+      text-align: center;
+      padding: var(--spacing-lg);
+      font-style: italic;
+      border: 2px dashed var(--border-color);
+      border-radius: var(--border-radius-sm);
+       margin-top: var(--spacing-md);
+  }
+
+  /* Responsive adjustments for columns */
+  @media (max-width: 768px) {
+    .kanban-column {
+      min-width: 250px; /* Slightly smaller min-width */
+    }
+  }
+  @media (max-width: 480px) {
+     .kanban-column {
+          min-width: 220px;
+     }
+  }

@@ -1,0 +1,169 @@
+ /* src/components/Calendar/CalendarView.css */
+
+ .calendar-view-container {
+    padding: var(--spacing-lg);
+ }
+
+ .calendar-wrapper {
+    margin-bottom: var(--spacing-lg);
+    /* Ensure calendar fits well */
+    max-width: 600px; /* Or adjust as needed */
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+ /* Base Calendar Styling (overrides/enhancements) */
+ .task-calendar {
+   border: 1px solid var(--border-color);
+   border-radius: var(--border-radius-md);
+   background-color: var(--surface-color); /* Ensure bg matches theme */
+   padding: var(--spacing-sm);
+   font-family: var(--font-primary);
+ }
+ .task-calendar .react-calendar__tile {
+    color: var(--text-color); /* Ensure text color matches theme */
+    border-radius: var(--border-radius-sm);
+    position: relative; /* Needed for absolute positioning of marker */
+    height: 50px; /* Ensure tiles have enough height */
+    display: flex; /* Center content */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align number to top */
+    padding-top: 4px;
+    font-size: var(--font-size-sm);
+ }
+  .task-calendar .react-calendar__tile abbr { /* The day number */
+      font-weight: 500;
+  }
+
+ .task-calendar .react-calendar__tile:enabled:hover,
+ .task-calendar .react-calendar__tile:enabled:focus {
+    background-color: var(--background-color); /* Subtle hover */
+ }
+ .task-calendar .react-calendar__tile--now { /* Today's date */
+    background-color: var(--primary-color-light, #e7f1fc); /* Lighter primary color */
+    color: var(--primary-color);
+    font-weight: bold;
+ }
+ body.dark-theme .task-calendar .react-calendar__tile--now {
+    background-color: rgba(88, 166, 255, 0.2);
+    color: var(--primary-color);
+ }
+ .task-calendar .react-calendar__tile--active { /* Selected date */
+    background-color: var(--primary-color);
+    color: white;
+ }
+ body.dark-theme .task-calendar .react-calendar__tile--active {
+      color: var(--background-color); /* Ensure contrast on dark mode */
+ }
+
+ .task-calendar .react-calendar__month-view__days__day--neighboringMonth {
+    color: var(--text-muted-color); /* Dim days from other months */
+ }
+
+ /* Task Marker Dot */
+ .task-marker {
+   position: absolute;
+   bottom: 6px; /* Position dot at the bottom */
+   left: 50%;
+   transform: translateX(-50%);
+   height: 6px;
+   width: 6px;
+   background-color: var(--secondary-color, #50e3c2); /* Use accent color */
+   border-radius: 50%;
+ }
+ body.dark-theme .task-marker {
+     background-color: var(--secondary-color);
+ }
+
+  /* Style day tiles that have tasks */
+  .day-with-tasks {
+     /* Optional: slightly bolder or different background? */
+     /* font-weight: bold; */
+  }
+
+
+ /* Selected Day Tasks List */
+ .selected-day-tasks {
+     margin-top: var(--spacing-lg);
+     padding-top: var(--spacing-lg);
+     border-top: 1px solid var(--border-color);
+ }
+ .selected-day-tasks h3 {
+     margin-bottom: var(--spacing-md);
+     font-size: var(--font-size-lg);
+ }
+
+ .selected-tasks-list {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+ }
+
+ .selected-task-item {
+     padding: var(--spacing-sm) var(--spacing-md);
+     margin-bottom: var(--spacing-sm);
+     border-radius: var(--border-radius-sm);
+     background-color: var(--background-color);
+     border: 1px solid var(--border-color);
+     cursor: pointer;
+     transition: background-color 0.2s ease;
+     display: flex;
+     align-items: center;
+     justify-content: space-between; /* Space out elements */
+     font-size: var(--font-size-md);
+ }
+ .selected-task-item:hover {
+     background-color: rgba(0, 0, 0, 0.03);
+ }
+ body.dark-theme .selected-task-item {
+      background-color: var(--surface-color);
+      border-color: #30363d; /* Slightly different border for contrast */
+ }
+  body.dark-theme .selected-task-item:hover {
+     background-color: rgba(255, 255, 255, 0.05);
+ }
+
+
+ .priority-dot {
+     height: 10px;
+     width: 10px;
+     border-radius: 50%;
+     margin-right: var(--spacing-sm);
+     display: inline-block; /* Or flex align */
+     flex-shrink: 0; /* Prevent dot from shrinking */
+ }
+ .priority-dot.priority-High { background-color: var(--priority-high-text); }
+ .priority-dot.priority-Medium { background-color: var(--priority-medium-text); }
+ .priority-dot.priority-Low { background-color: var(--priority-low-text); }
+
+
+ .task-status-badge {
+     font-size: var(--font-size-sm);
+     padding: 2px 6px;
+     border-radius: var(--border-radius-sm);
+     background-color: var(--text-muted-color);
+     color: white;
+     margin-left: var(--spacing-sm);
+     white-space: nowrap; /* Prevent badge text wrapping */
+ }
+ body.dark-theme .task-status-badge {
+     background-color: var(--text-muted-color);
+     color: var(--background-color);
+ }
+
+ /* Ensure calendar adapts somewhat on smaller screens */
+ @media (max-width: 480px) {
+     .task-calendar .react-calendar__tile {
+         height: 45px; /* Slightly smaller tiles */
+         font-size: 11px; /* Smaller day numbers */
+     }
+     .task-marker {
+         height: 5px;
+         width: 5px;
+         bottom: 4px;
+     }
+      .selected-task-item {
+          font-size: var(--font-size-sm); /* Smaller text in list */
+      }
+ }

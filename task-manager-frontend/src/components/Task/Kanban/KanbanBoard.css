@@ -1,0 +1,17 @@
+/* src/components/Task/Kanban/KanbanBoard.css */
+.kanban-board {
+    display: flex;
+    gap: var(--spacing-lg);
+    overflow-x: auto; /* Allow horizontal scrolling on smaller screens */
+    padding-bottom: var(--spacing-md); /* Space for scrollbar */
+    min-height: 60vh; /* Ensure columns have some height */
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .kanban-board {
+       /* Flex direction column might work for very small screens,
+          but horizontal scroll is often preferred for Kanban */
+       gap: var(--spacing-md);
+    }
+  }

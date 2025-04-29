@@ -1,0 +1,90 @@
+/* Light Theme (using :root defaults) is already set in global.css */
+
+        /* Dark Theme */
+        body.dark-theme {
+            --primary-color: #58a6ff; /* Lighter blue for dark mode */
+            --secondary-color: #79c0ff; /* Lighter teal accent */
+            --background-color: #0d1117; /* Very dark grey */
+            --surface-color: #161b22; /* Slightly lighter card backgrounds */
+            --text-color: #c9d1d9; /* Light grey text */
+            --text-muted-color: #8b949e; /* Medium grey text */
+            --border-color: #30363d; /* Darker border */
+            --shadow-color: rgba(0, 0, 0, 0.3);
+  
+            --priority-high-bg: #411519;
+            --priority-high-text: #ffa19b;
+            --priority-medium-bg: #482d0e;
+            --priority-medium-text: #ffc67b;
+            --priority-low-bg: #15301f;
+            --priority-low-text: #a0d699;
+          }
+  
+          /* Ensure inputs and buttons adapt in dark mode */
+          body.dark-theme input,
+          body.dark-theme select,
+          body.dark-theme textarea {
+             background-color: var(--surface-color);
+             color: var(--text-color);
+             border-color: var(--border-color);
+          }
+           body.dark-theme input:focus,
+           body.dark-theme select:focus,
+           body.dark-theme textarea:focus {
+              border-color: var(--primary-color);
+              box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.2);
+           }
+  
+          body.dark-theme .btn-secondary {
+            background-color: var(--surface-color);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+          }
+          body.dark-theme .btn-secondary:hover {
+            background-color: #21262d; /* Slightly darker surface on hover */
+          }
+  
+           body.dark-theme .card {
+              background-color: var(--surface-color);
+              border-color: var(--border-color);
+              box-shadow: 0 2px 4px var(--shadow-color);
+           }
+  
+           body.dark-theme .error-message { background-color: #411519; color: #ffa19b; border-color: #692a2d; }
+           body.dark-theme .success-message { background-color: #15301f; color: #a0d699; border-color: #2c5132; }
+  
+           body.dark-theme .loading-spinner {
+              border-left-color: var(--primary-color);
+           }
+  
+           /* Dark theme calendar adjustments */
+           body.dark-theme .react-calendar {
+               background: var(--surface-color);
+               border-color: var(--border-color);
+               color: var(--text-color);
+           }
+           body.dark-theme .react-calendar__tile { color: var(--text-color); }
+           body.dark-theme .react-calendar__tile:enabled:hover,
+           body.dark-theme .react-calendar__tile:enabled:focus {
+               background-color: #21262d;
+           }
+           body.dark-theme .react-calendar__tile--now { /* Today's date */
+               background: #1f6feb; /* A distinct blue */
+               color: white;
+           }
+           body.dark-theme .react-calendar__tile--active { /* Selected date */
+               background: var(--primary-color);
+               color: var(--background-color);
+           }
+            body.dark-theme .react-calendar__month-view__days__day--neighboringMonth {
+               color: var(--text-muted-color); /* Dim days from other months */
+           }
+           body.dark-theme .react-calendar__navigation button {
+               color: var(--text-color);
+               background: none;
+           }
+           body.dark-theme .react-calendar__navigation button:enabled:hover,
+           body.dark-theme .react-calendar__navigation button:enabled:focus {
+              background-color: #21262d;
+           }
+  
+          /* Add more specific dark theme overrides as needed */

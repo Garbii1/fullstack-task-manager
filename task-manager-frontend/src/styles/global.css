@@ -1,0 +1,223 @@
+:root {
+    /* Define CSS variables for colors, spacing, fonts */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 64px;
+
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-md: 1rem;    /* 16px */
+    --font-size-lg: 1.125rem; /* 18px */
+    --font-size-xl: 1.5rem;  /* 24px */
+
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-secondary: sans-serif; /* Fallback */
+
+    /* Default to light theme variables */
+    --primary-color: #4a90e2; /* A nice blue */
+    --secondary-color: #50e3c2; /* A teal accent */
+    --background-color: #f8f9fa; /* Off-white */
+    --surface-color: #ffffff; /* Card backgrounds, inputs */
+    --text-color: #212529; /* Dark grey */
+    --text-muted-color: #6c757d; /* Lighter grey */
+    --border-color: #dee2e6; /* Light border */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --error-color: #dc3545; /* Red for errors */
+    --success-color: #28a745; /* Green for success */
+
+    --priority-high-bg: #ffebee;
+    --priority-high-text: #c62828;
+    --priority-medium-bg: #fff3e0;
+    --priority-medium-text: #f57c00;
+    --priority-low-bg: #e8f5e9;
+    --priority-low-text: #388e3c;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px; /* Base font size */
+  }
+
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-primary), var(--font-secondary);
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  h1 { font-size: var(--font-size-xl); }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: var(--font-size-lg); }
+
+  p {
+    margin-bottom: var(--spacing-md);
+  }
+
+  button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-md);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    font-family: inherit;
+    font-weight: 500;
+  }
+
+  .btn { /* Base button style */
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+      user-select: none;
+  }
+
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+  }
+  .btn-primary:hover {
+    background-color: #357abd; /* Darker blue */
+    border-color: #357abd;
+  }
+
+  .btn-secondary {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+  }
+  .btn-secondary:hover {
+    background-color: var(--background-color);
+  }
+
+  .btn-danger {
+      background-color: var(--error-color);
+      color: white;
+      border-color: var(--error-color);
+  }
+  .btn-danger:hover {
+      background-color: #c82333; /* Darker red */
+      border-color: #bd2130;
+  }
+
+
+  input, select, textarea {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    font-size: var(--font-size-md);
+    font-family: inherit;
+  }
+  input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+  }
+
+  textarea {
+      min-height: 100px;
+      resize: vertical;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1200px; /* Max width for large screens */
+    margin: 0 auto; /* Center container */
+    padding: var(--spacing-lg) 0;
+  }
+
+  .card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .text-center { text-align: center; }
+  .text-muted { color: var(--text-muted-color); }
+  .error-message { color: var(--error-color); background-color: #f8d7da; border: 1px solid #f5c6cb; padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--border-radius-sm); margin-bottom: var(--spacing-md); }
+  .success-message { color: var(--success-color); background-color: #d4edda; border: 1px solid #c3e6cb; padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--border-radius-sm); margin-bottom: var(--spacing-md); }
+
+  .loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: var(--primary-color);
+    margin: 20px auto;
+    animation: spin 1s ease infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Priority Badges */
+  .priority-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      border-radius: 12px; /* Pill shape */
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+  }
+
+  .priority-High { background-color: var(--priority-high-bg); color: var(--priority-high-text); }
+  .priority-Medium { background-color: var(--priority-medium-bg); color: var(--priority-medium-text); }
+  .priority-Low { background-color: var(--priority-low-bg); color: var(--priority-low-text); }
+
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      width: 95%;
+      padding: var(--spacing-md) 0;
+    }
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    button, input, select, textarea { font-size: var(--font-size-md); } /* Ensure readability */
+    /* Adjust Kanban columns for smaller screens later */
+  }
+
+  @media (max-width: 480px) {
+    :root {
+       --spacing-md: 12px;
+       --spacing-lg: 18px;
+    }
+    .card { padding: var(--spacing-md); }
+    button { padding: var(--spacing-sm) var(--spacing-sm); }
+  }

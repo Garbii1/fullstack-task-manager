@@ -1,0 +1,69 @@
+ /* src/components/Task/TaskItem.css */
+ .task-item {
+    margin-bottom: var(--spacing-md);
+    transition: box-shadow 0.2s ease;
+  }
+  .task-item.draggable:hover { /* Subtle hover effect for draggable items */
+      box-shadow: 0 4px 8px var(--shadow-color);
+  }
+
+
+  .task-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items top */
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .task-title {
+    margin-bottom: 0; /* Remove default heading margin */
+    margin-right: var(--spacing-sm); /* Space between title and badge */
+    font-size: var(--font-size-lg);
+    word-break: break-word; /* Prevent long titles from overflowing */
+  }
+
+  .task-description {
+      font-size: var(--font-size-sm);
+      margin-bottom: var(--spacing-md);
+      white-space: pre-wrap; /* Preserve line breaks in description */
+      word-break: break-word;
+  }
+
+  .task-item-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+    gap: var(--spacing-xs) var(--spacing-md); /* Row and column gap */
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-md);
+    color: var(--text-muted-color);
+  }
+  .task-item-details strong {
+     color: var(--text-color); /* Make labels slightly darker */
+     margin-right: 4px;
+  }
+  .task-created-date {
+      grid-column: 1 / -1; /* Make created date span full width */
+      text-align: right;
+       margin-top: var(--spacing-sm);
+      font-style: italic;
+  }
+
+  .task-item-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+     margin-top: var(--spacing-sm); /* Add space above buttons */
+     border-top: 1px solid var(--border-color); /* Separator line */
+     padding-top: var(--spacing-md);
+  }
+
+  .btn-sm { /* Smaller buttons for actions */
+      padding: 4px 8px;
+      font-size: var(--font-size-sm);
+  }
+
+  /* Styles for when item is being dragged (optional) */
+  /* These classes are added by react-beautiful-dnd */
+  .task-item [data-rbd-draggable-id] {
+      /* background-color: lightblue; */ /* Example: change background when dragging */
+  }

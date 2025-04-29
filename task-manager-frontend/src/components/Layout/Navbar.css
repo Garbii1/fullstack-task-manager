@@ -1,0 +1,99 @@
+ /* src/components/Layout/Navbar.css */
+ .navbar {
+    background-color: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-sm) 0;
+    box-shadow: 0 1px 3px var(--shadow-color);
+    position: sticky; /* Make navbar sticky */
+    top: 0;
+    z-index: 1000; /* Ensure it's above other content */
+  }
+
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+  }
+   .navbar-brand:hover {
+       text-decoration: none; /* Remove underline on hover for brand */
+       color: var(--primary-color);
+   }
+
+
+  .navbar-logo {
+    height: 35px; /* Adjust size as needed */
+    width: auto;
+    margin-right: var(--spacing-sm);
+    vertical-align: middle; /* Align logo nicely with text */
+  }
+
+  .navbar-menu {
+    display: flex;
+    align-items: center;
+  }
+
+  .theme-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    padding: var(--spacing-sm);
+    margin-right: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    transition: background-color 0.2s ease;
+  }
+  .theme-toggle-btn:hover {
+     background-color: rgba(128, 128, 128, 0.1); /* Subtle hover */
+  }
+
+  .navbar-user {
+    margin-right: var(--spacing-md);
+    color: var(--text-muted-color);
+    font-size: var(--font-size-sm);
+  }
+
+  .btn-logout {
+      padding: 6px 12px; /* Slightly smaller logout button */
+      font-size: var(--font-size-sm);
+  }
+
+
+  /* Responsive Navbar */
+  @media (max-width: 768px) {
+     .navbar-container {
+          /* Allow wrapping if needed, though space-between usually handles it */
+     }
+     .navbar-user {
+         display: none; /* Hide username on smaller screens */
+     }
+     .navbar-brand span {
+         /* Optionally hide brand text on very small screens */
+         /* display: none; */
+     }
+  }
+   @media (max-width: 480px) {
+       .navbar-brand span {
+          font-size: var(--font-size-md); /* Smaller brand text */
+       }
+       .navbar-logo {
+           height: 30px;
+       }
+        .theme-toggle-btn {
+           margin-right: var(--spacing-sm);
+           padding: var(--spacing-xs);
+        }
+        .navbar-menu .btn {
+             padding: 5px 8px;
+             font-size: var(--font-size-sm);
+        }
+   }
